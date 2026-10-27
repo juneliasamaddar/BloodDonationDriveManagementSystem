@@ -20,7 +20,7 @@ services:
     image: juneliasamaddar/docker-backend-2400032187:latest
     build:
       context: ./backend
-      dockerfile: Dockerfile
+      dockerfile: backend.Dockerfile
     container_name: blooddonation-backend
     environment:
       DB_URL: jdbc:postgresql://postgres:5432/exam_2400032187
@@ -37,7 +37,7 @@ services:
     image: juneliasamaddar/docker-frontend-2400032187:latest
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: frontend.Dockerfile
     container_name: blooddonation-frontend
     ports:
       - "3000:80"
