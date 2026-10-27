@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:16
+    image: postgres:16-alpine
     container_name: blooddonation-postgres
     environment:
       POSTGRES_DB: exam_2400032187
@@ -31,6 +31,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    restart: on-failure
 
   frontend:
     image: juneliasamaddar/docker-frontend-2400032187:latest
@@ -42,6 +43,7 @@ services:
       - "3000:80"
     depends_on:
       - backend
+    restart: on-failure
 
 volumes:
   postgres_data:
